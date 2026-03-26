@@ -14,17 +14,17 @@ const otherLangLabel = lang === 'hu' ? 'EN' : 'HU';
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 bg-bg/85 backdrop-blur-lg border-b border-divider">
-  <nav class="max-w-6xl mx-auto px-8 lg:px-8 py-6 flex items-center justify-between">
+  <nav class="max-w-6xl mx-auto px-8 lg:px-8 py-7 flex items-center justify-between">
     <a href={getLocalizedPath(lang)} class="font-serif text-lg text-primary tracking-tight">
       {t('site.name')}
     </a>
 
     <!-- Desktop nav -->
     <div class="hidden md:flex items-center gap-8">
-      <a href="#about" class="text-[0.8rem] text-text-light uppercase tracking-[0.08em] hover:text-accent transition-colors duration-300">{t('nav.about')}</a>
-      <a href="#experience" class="text-[0.8rem] text-text-light uppercase tracking-[0.08em] hover:text-accent transition-colors duration-300">{t('nav.experience')}</a>
-      <a href="#newsletter" class="text-[0.8rem] text-text-light uppercase tracking-[0.08em] hover:text-accent transition-colors duration-300">{t('nav.newsletter')}</a>
-      <a href="#contact" class="text-[0.8rem] text-text-light uppercase tracking-[0.08em] hover:text-accent transition-colors duration-300">{t('nav.contact')}</a>
+      <a href="#about" class="text-[0.75rem] text-text-light uppercase tracking-[0.1em] hover:text-accent transition-colors duration-300">{t('nav.about')}</a>
+      <a href="#experience" class="text-[0.75rem] text-text-light uppercase tracking-[0.1em] hover:text-accent transition-colors duration-300">{t('nav.experience')}</a>
+      <a href="#newsletter" class="text-[0.75rem] text-text-light uppercase tracking-[0.1em] hover:text-accent transition-colors duration-300">{t('nav.newsletter')}</a>
+      <a href="#contact" class="text-[0.75rem] text-text-light uppercase tracking-[0.1em] hover:text-accent transition-colors duration-300">{t('nav.contact')}</a>
       <a
         href={otherLangPath}
         class="text-[0.7rem] font-medium px-3 py-1.5 border border-accent/40 rounded-sm text-accent hover:bg-accent hover:text-white transition-all duration-300"

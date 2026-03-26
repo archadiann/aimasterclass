@@ -3,15 +3,16 @@
 @theme {
   /* Scandinavian – cool sage & warm neutrals */
   --color-primary: #2C2C2A;
-  --color-accent: #7A8E7A;
-  --color-accent-light: #A3B5A3;
+  --color-accent: #8A9A8A;
+  --color-accent-light: #A8B8A8;
+  --color-accent-warm: #C4B5A0;
   --color-bg: #FAFAF8;
-  --color-bg-alt: #F0EFEB;
+  --color-bg-alt: #F2F1ED;
   --color-bg-dark: #2C2C2A;
-  --color-bg-warm: #F5F4F0;
+  --color-bg-warm: #F6F5F1;
   --color-text: #3A3A38;
-  --color-text-light: #7A7A76;
-  --color-divider: rgba(44,44,42,0.07);
+  --color-text-light: #8A8A86;
+  --color-divider: rgba(44,44,42,0.05);
 
   --font-sans: 'DM Sans', system-ui, sans-serif;
   --font-serif: 'Libre Baskerville', 'Georgia', serif;
