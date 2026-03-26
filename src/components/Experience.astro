@@ -1,0 +1,58 @@
+---
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const cards = [
+  { num: '01', title: t('experience.urban.title'), desc: t('experience.urban.desc') },
+  { num: '02', title: t('experience.service.title'), desc: t('experience.service.desc') },
+  { num: '03', title: t('experience.eu.title'), desc: t('experience.eu.desc') },
+  { num: '04', title: t('experience.education.title'), desc: t('experience.education.desc') },
+  { num: '05', title: t('experience.community.title'), desc: t('experience.community.desc') },
+  { num: '06', title: t('experience.tourism.title'), desc: t('experience.tourism.desc') },
+];
+
+const stats = [
+  { number: t('experience.stats.years'), label: t('experience.stats.years.label') },
+  { number: t('experience.stats.projects'), label: t('experience.stats.projects.label') },
+  { number: t('experience.stats.leadership'), label: t('experience.stats.leadership.label') },
+];
+---
+
+<section id="experience" class="py-36 px-8 lg:px-8 bg-bg-dark text-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="font-serif text-[2.5rem] text-center mb-4">{t('experience.title')}</h2>
+    <p class="text-center text-white/35 text-sm mb-20 max-w-md mx-auto leading-relaxed">
+      {lang === 'hu'
+        ? 'Több mint másfél évtized a városi tervezés és szolgáltatásfejlesztés metszéspontjában'
+        : 'Over a decade and a half at the intersection of urban planning and service design'}
+    </p>
+
+    <!-- Stats -->
+    <div class="flex justify-center gap-14 lg:gap-24 mb-20 pb-16 border-b border-white/[0.06]">
+      {stats.map((stat) => (
+        <div class="text-center">
+          <div class="font-serif text-[3rem] font-bold text-accent-light leading-none">{stat.number}</div>
+          <div class="text-[0.7rem] text-white/35 mt-3 uppercase tracking-[0.1em]">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Cards -->
+    <div class="grid md:grid-cols-2 gap-6">
+      {cards.map((card) => (
+        <div class="p-8 border border-white/[0.05] rounded-sm hover:border-accent-light/30 transition-colors duration-500">
+          <div class="text-sm text-accent-light/40 mb-4 tracking-wide">{card.num}</div>
+          <h3 class="font-serif text-lg text-white mb-3">{card.title}</h3>
+          <p class="text-[0.85rem] text-white/45 leading-[1.8]">{card.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

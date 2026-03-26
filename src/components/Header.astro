@@ -1,0 +1,63 @@
+---
+import type { Lang } from '../i18n/ui';
+import { useTranslations, getLocalizedPath } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const otherLang = lang === 'hu' ? 'en' : 'hu';
+const otherLangPath = getLocalizedPath(otherLang);
+const otherLangLabel = lang === 'hu' ? 'EN' : 'HU';
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-bg/85 backdrop-blur-lg border-b border-divider">
+  <nav class="max-w-6xl mx-auto px-8 lg:px-8 py-6 flex items-center justify-between">
+    <a href={getLocalizedPath(lang)} class="font-serif text-lg text-primary tracking-tight">
+      {t('site.name')}
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#about" class="text-[0.8rem] text-text-light uppercase tracking-[0.08em] hover:text-accent transition-colors duration-300">{t('nav.about')}</a>
+      <a href="#experience" class="text-[0.8rem] text-text-light uppercase tracking-[0.08em] hover:text-accent transition-colors duration-300">{t('nav.experience')}</a>
+      <a href="#newsletter" class="text-[0.8rem] text-text-light uppercase tracking-[0.08em] hover:text-accent transition-colors duration-300">{t('nav.newsletter')}</a>
+      <a href="#contact" class="text-[0.8rem] text-text-light uppercase tracking-[0.08em] hover:text-accent transition-colors duration-300">{t('nav.contact')}</a>
+      <a
+        href={otherLangPath}
+        class="text-[0.7rem] font-medium px-3 py-1.5 border border-accent/40 rounded-sm text-accent hover:bg-accent hover:text-white transition-all duration-300"
+      >
+        {otherLangLabel}
+      </a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button id="menu-toggle" class="md:hidden p-2 text-primary" aria-label="Menu">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden px-6 pb-5 space-y-4 border-t border-divider pt-4">
+    <a href="#about" class="block text-sm text-text-light hover:text-accent">{t('nav.about')}</a>
+    <a href="#experience" class="block text-sm text-text-light hover:text-accent">{t('nav.experience')}</a>
+    <a href="#newsletter" class="block text-sm text-text-light hover:text-accent">{t('nav.newsletter')}</a>
+    <a href="#contact" class="block text-sm text-text-light hover:text-accent">{t('nav.contact')}</a>
+    <a href={otherLangPath} class="inline-block text-xs font-medium px-3 py-1.5 border border-accent/40 rounded-sm text-accent">
+      {otherLangLabel}
+    </a>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => menu?.classList.add('hidden'));
+  });
+</script>
