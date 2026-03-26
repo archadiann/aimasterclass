@@ -8,7 +8,7 @@ Egyoldalas, scrollozható, kétnyelvű (magyar alapértelmezett + angol).
 - Astro 5.x (statikus oldal generátor)
 - Tailwind CSS 4.x (stílusok)
 - Supabase (hírlevél feliratkozók tárolása)
-- Deploy: Netlify
+- Deploy: Vercel
 
 ## Parancsok
 - `npm run dev` – lokális dev szerver (localhost:4321)
