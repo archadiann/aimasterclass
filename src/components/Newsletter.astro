@@ -43,7 +43,7 @@ const t = useTranslations(lang);
   </div>
 </section>
 
-<script define:vars={{ lang, successMsg: t('newsletter.success'), errorMsg: t('newsletter.error'), duplicateMsg: t('newsletter.duplicate') }}>
+<script define:vars={{ lang, successMsg: t('newsletter.success'), errorMsg: t('newsletter.error'), duplicateMsg: t('newsletter.duplicate'), supabaseUrl: import.meta.env.PUBLIC_SUPABASE_URL, supabaseKey: import.meta.env.PUBLIC_SUPABASE_ANON_KEY }}>
   const form = document.getElementById('newsletter-form');
   const messageEl = document.getElementById('newsletter-message');
 
@@ -54,9 +54,6 @@ const t = useTranslations(lang);
     if (!email) return;
 
     try {
-      const supabaseUrl = import.meta.env?.PUBLIC_SUPABASE_URL;
-      const supabaseKey = import.meta.env?.PUBLIC_SUPABASE_ANON_KEY;
-
       if (!supabaseUrl || supabaseUrl === 'https://your-project.supabase.co') {
         showMessage(successMsg, 'text-green-700');
         form.reset();
